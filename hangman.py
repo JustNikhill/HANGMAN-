@@ -1,5 +1,5 @@
 import random
-from words import words
+from words import words  # create another file(word.py) and add words at least 50 
 import string
 
 
@@ -13,9 +13,15 @@ def get_valid_word(words):
 
 def hangman():
     word = get_valid_word(words)
-    word_letters = set(word)  # letters in the word
+    
+    # letters in the word
+    
+    word_letters = set(word)  
     alphabet = set(string.ascii_uppercase)
-    used_letters = set()  # what the user has guessed
+    
+    # what the user has guessed
+    
+    used_letters = set()  
 
     lives = 6
 
@@ -37,7 +43,9 @@ def hangman():
                 print('')
 
             else:
-                lives = lives - 1  # takes away a life if wrong
+                # takes away a life if wrong
+                
+                lives = lives - 1  
                 print('\nYour letter,', user_letter, 'is not in the word.')
 
         elif user_letter in used_letters:
@@ -47,6 +55,7 @@ def hangman():
             print('\nThat is not a valid letter.')
 
     # gets here when len(word_letters) == 0 OR when lives == 0
+    
     if lives == 0:
         print('You died, sorry. The word was', word)
     else:
@@ -55,3 +64,7 @@ def hangman():
 
 if __name__ == '__main__':
     hangman()
+    
+    
+    
+    
